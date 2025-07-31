@@ -19,3 +19,11 @@ This project uses `uv` to manage the virtual environment.
     ```bash
     source .venv/bin/activate
     ```
+
+## Data Files
+
+The application requires three data files in the `data` directory:
+
+- `config.json`: This file contains the main configuration for the application. You can start by copying `data/config.example.json` to `data/config.json`.
+- `rooms.json`: This file defines the different rooms. An example is provided. Each room should have a `name` and a `color`.
+- `schedule.json`: This file contains the actual schedule. You will need to provide this file yourself with your schedule data.

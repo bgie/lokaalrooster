@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Creative Writing",
+    "room": "Pink",
+    "start_time": "09:00",
+    "end_time": "10:30"
+  },
+  {
+    "name": "Art History",
+    "room": "Pink",
+    "start_time": "11:00",
+    "end_time": "12:30"
+  },
+  {
+    "name": "Beginner's Chemistry",
+    "room": "Yellow",
+    "start_time": "09:00",
+    "end_time": "10:30"
+  },
+  {
+    "name": "Economics 101",
+    "room": "Orange",
+    "start_time": "13:00",
+    "end_time": "14:30"
+  },
+  {
+    "name": "Botany",
+    "room": "Green",
+    "start_time": "10:00",
+    "end_time": "11:30"
+  },
+  {
+    "name": "Advanced Botany",
+    "room": "Green",
+    "start_time": "14:00",
+    "end_time": "15:30"
+  },
+  {
+    "name": "Modern Philosophy",
+    "room": "Purple",
+    "start_time": "09:00",
+    "end_time": "10:30"
+  }
+]
