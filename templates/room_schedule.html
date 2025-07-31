@@ -5,10 +5,9 @@
 {% block content %}
 <div class="room-schedule-container">
     <div class="schedule-panel">
-        <h1>Schedule: {{ room }}</h1>
         <ul class="schedule-items">
             {% for class in schedule %}
-                <li class="schedule-entry {% if class == current_class %}active{% endif %}">
+                <li class="schedule-entry {% if class.type == 'break' %}break-entry{% endif %} {% if class == current_class %}active{% endif %}" {% if class.type == 'class' and room %}style="background-color: {{ room.color }}; color: {{ room.text_color }};"{% endif %}>
                     <div class="class-name">{{ class.name }}</div>
                     <div class="class-time">{{ class.start_time }} - {{ class.end_time }}</div>
                 </li>
@@ -20,11 +19,11 @@
         </ul>
     </div>
     <div class="info-panel">
-        <div id="clock-box">
-            <div id="clock"></div>
+        <div class="room-title-box">
+            <h1>{{ room.name }}</h1>
         </div>
         <div class="current-class-box">
-            <h2>Now In Session</h2>
+            <h2>{% if current_class and current_class.type == 'break' %}On Break{% else %}Now In Session{% endif %}</h2>
             {% if current_class %}
                 <p class="current-class-name">{{ current_class.name }}</p>
                 <div id="progress-container" data-start-time="{{ current_class.start_time }}" data-end-time="{{ current_class.end_time }}">
@@ -35,8 +34,11 @@
                     <span class="time-label end-time">{{ current_class.end_time }}</span>
                 </div>
             {% else %}
-                <p class="current-class-name">No Class</p>
+                <p class="current-class-name">-</p>
             {% endif %}
+        </div>
+        <div id="clock-box">
+            <div id="clock"></div>
         </div>
     </div>
 </div>

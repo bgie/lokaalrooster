@@ -2,49 +2,181 @@
   {
     "name": "Creative Writing",
     "room": "Pink",
-    "start_time": "09:00",
-    "end_time": "10:30"
+    "start_time": "08:30",
+    "end_time": "10:00"
   },
   {
     "name": "Art History",
     "room": "Pink",
-    "start_time": "11:00",
-    "end_time": "12:30"
-  },
-  {
-    "name": "Visual Basic",
-    "room": "Pink",
-    "start_time": "17:30",
-    "end_time": "17:45"
+    "start_time": "10:15",
+    "end_time": "11:15"
   },
   {
     "name": "Beginner's Chemistry",
     "room": "Yellow",
-    "start_time": "09:00",
-    "end_time": "10:30"
+    "start_time": "08:30",
+    "end_time": "10:00"
   },
   {
     "name": "Economics 101",
     "room": "Orange",
-    "start_time": "13:00",
+    "start_time": "13:30",
     "end_time": "14:30"
   },
   {
     "name": "Botany",
     "room": "Green",
-    "start_time": "10:00",
-    "end_time": "11:30"
+    "start_time": "10:15",
+    "end_time": "11:15"
   },
   {
     "name": "Advanced Botany",
     "room": "Green",
-    "start_time": "14:00",
-    "end_time": "15:30"
+    "start_time": "14:45",
+    "end_time": "15:45"
   },
   {
     "name": "Modern Philosophy",
     "room": "Purple",
-    "start_time": "09:00",
-    "end_time": "10:30"
+    "start_time": "08:30",
+    "end_time": "10:00"
+  },
+  {
+    "name": "Poetry Workshop",
+    "room": "Pink",
+    "start_time": "11:30",
+    "end_time": "12:30"
+  },
+  {
+    "name": "Intro to Sculpture",
+    "room": "Pink",
+    "start_time": "13:30",
+    "end_time": "14:30"
+  },
+  {
+    "name": "Film Studies",
+    "room": "Pink",
+    "start_time": "14:45",
+    "end_time": "15:45"
+  },
+  {
+    "name": "Advanced Creative Writing",
+    "room": "Pink",
+    "start_time": "16:00",
+    "end_time": "19:30"
+  },
+  {
+    "name": "Organic Chemistry",
+    "room": "Yellow",
+    "start_time": "10:15",
+    "end_time": "11:15"
+  },
+  {
+    "name": "Lab Safety",
+    "room": "Yellow",
+    "start_time": "11:30",
+    "end_time": "12:30"
+  },
+  {
+    "name": "Physics 101",
+    "room": "Yellow",
+    "start_time": "13:30",
+    "end_time": "14:30"
+  },
+  {
+    "name": "Quantum Mechanics",
+    "room": "Yellow",
+    "start_time": "14:45",
+    "end_time": "15:45"
+  },
+  {
+    "name": "Advanced Chemistry Lab",
+    "room": "Yellow",
+    "start_time": "16:00",
+    "end_time": "19:30"
+  },
+  {
+    "name": "Microeconomics",
+    "room": "Orange",
+    "start_time": "08:30",
+    "end_time": "10:00"
+  },
+  {
+    "name": "Macroeconomics",
+    "room": "Orange",
+    "start_time": "10:15",
+    "end_time": "11:15"
+  },
+  {
+    "name": "History of Money",
+    "room": "Orange",
+    "start_time": "11:30",
+    "end_time": "12:30"
+  },
+  {
+    "name": "International Trade",
+    "room": "Orange",
+    "start_time": "14:45",
+    "end_time": "15:45"
+  },
+  {
+    "name": "Game Theory",
+    "room": "Orange",
+    "start_time": "16:00",
+    "end_time": "19:30"
+  },
+  {
+    "name": "Introduction to Biology",
+    "room": "Green",
+    "start_time": "08:30",
+    "end_time": "10:00"
+  },
+  {
+    "name": "Genetics",
+    "room": "Green",
+    "start_time": "11:30",
+    "end_time": "12:30"
+  },
+  {
+    "name": "Ecology",
+    "room": "Green",
+    "start_time": "13:30",
+    "end_time": "14:30"
+  },
+  {
+    "name": "Marine Biology",
+    "room": "Green",
+    "start_time": "16:00",
+    "end_time": "17:30"
+  },
+  {
+    "name": "Ancient Philosophy",
+    "room": "Purple",
+    "start_time": "10:15",
+    "end_time": "11:15"
+  },
+  {
+    "name": "Ethics",
+    "room": "Purple",
+    "start_time": "11:30",
+    "end_time": "12:30"
+  },
+  {
+    "name": "Political Philosophy",
+    "room": "Purple",
+    "start_time": "13:30",
+    "end_time": "14:30"
+  },
+  {
+    "name": "Existentialism",
+    "room": "Purple",
+    "start_time": "14:45",
+    "end_time": "15:45"
+  },
+  {
+    "name": "Logic and Reasoning",
+    "room": "Purple",
+    "start_time": "16:00",
+    "end_time": "19:30"
   }
 ]

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Short Break",
+    "start_time": "10:00",
+    "end_time": "10:15"
+  },
+  {
+    "name": "Short Break",
+    "start_time": "11:15",
+    "end_time": "11:30"
+  },
+  {
+    "name": "Lunch Break",
+    "start_time": "12:30",
+    "end_time": "13:30"
+  },
+  {
+    "name": "Short Break",
+    "start_time": "14:30",
+    "end_time": "14:45"
+  },
+  {
+    "name": "Short Break",
+    "start_time": "15:45",
+    "end_time": "16:00"
+  }
+]

@@ -30,6 +30,15 @@ def load_schedule():
         return json.load(f)
 
 
+def load_shared_schedule():
+    """Loads the shared break schedule from the JSON file."""
+    try:
+        with open("data/shared_schedule.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
+
 def get_text_color_for_bg(hex_color):
     """Determines if text should be black or white based on background color luminance."""
     hex_color = hex_color.lstrip("#")
@@ -43,7 +52,7 @@ def get_text_color_for_bg(hex_color):
 
     luminance = (0.2126 * srgb_to_linear(r_s) +
                  0.7152 * srgb_to_linear(g_s) +
-                 0.1522 * srgb_to_linear(b_s))
+                 0.0722 * srgb_to_linear(b_s))
 
     return "#FFFFFF" if luminance < 0.4 else "#000000"
 
@@ -63,9 +72,22 @@ def get_all_rooms():
 
 
 def get_schedule_for_room(room_id):
-    """Filters the schedule for a specific room."""
-    full_schedule = load_schedule()
-    return [item for item in full_schedule if item["room"] == room_id]
+    """
+    Gets the combined schedule for a specific room, including shared breaks.
+    """
+    room_classes = [
+        item for item in load_schedule() if item.get("room") == room_id
+    ]
+    for item in room_classes:
+        item["type"] = "class"
+
+    shared_breaks = load_shared_schedule()
+    for item in shared_breaks:
+        item["type"] = "break"
+
+    combined_schedule = room_classes + shared_breaks
+    combined_schedule.sort(key=lambda x: datetime.strptime(x["start_time"], "%H:%M"))
+    return combined_schedule
 
 
 @app.route("/")
@@ -79,6 +101,8 @@ def index():
 def room_schedule(room_id):
     """Serves the page with the schedule for a specific room."""
     schedule = get_schedule_for_room(room_id)
+    all_rooms = get_all_rooms()
+    room = next((r for r in all_rooms if r.get("name") == room_id), None)
 
     now = datetime.now().time()
     current_class = None
@@ -96,7 +120,7 @@ def room_schedule(room_id):
     return render_template(
         "room_schedule.html",
         schedule=schedule,
-        room=room_id,
+        room=room,
         current_class=current_class,
     )
 
