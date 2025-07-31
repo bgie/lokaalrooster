@@ -1,6 +1,6 @@
 import json
-from datetime import datetime
-from flask import Flask, render_template
+from datetime import datetime, timedelta
+from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 
@@ -104,14 +104,25 @@ def room_schedule(room_id):
     all_rooms = get_all_rooms()
     room = next((r for r in all_rooms if r.get("name") == room_id), None)
 
-    now = datetime.now().time()
+    if not room:
+        abort(404, description=f"Room '{room_id}' not found.")
+
+    now = datetime.now()
+    now_time = now.time()
     current_class = None
+    show_gif = False
+
     for item in schedule:
         try:
             start_time = datetime.strptime(item["start_time"], "%H:%M").time()
             end_time = datetime.strptime(item["end_time"], "%H:%M").time()
-            if start_time <= now < end_time:
+
+            if start_time <= now_time < end_time:
                 current_class = item
+                if item.get("type") == "break":
+                    break_start_dt = datetime.combine(now.date(), start_time)
+                    if now < break_start_dt + timedelta(minutes=1):
+                        show_gif = True
                 break
         except (ValueError, KeyError):
             # Ignore malformed or incomplete schedule items
@@ -122,6 +133,7 @@ def room_schedule(room_id):
         schedule=schedule,
         room=room,
         current_class=current_class,
+        show_gif=show_gif,
     )
 
 

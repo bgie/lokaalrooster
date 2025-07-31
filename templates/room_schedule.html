@@ -19,10 +19,13 @@
         </ul>
     </div>
     <div class="info-panel">
-        <div class="room-title-box">
+        <div class="room-title-box" {% if room %}style="background-color: {{ room.color }}; color: {{ room.text_color }};"{% endif %}>
             <h1>{{ room.name }}</h1>
         </div>
         <div class="current-class-box">
+            {% if show_gif %}
+                <img src="{{ config.BREAK_GIF_URL }}" alt="Break time animation" class="break-gif">
+            {% endif %}
             <h2>{% if current_class and current_class.type == 'break' %}On Break{% else %}Now In Session{% endif %}</h2>
             {% if current_class %}
                 <p class="current-class-name">{{ current_class.name }}</p>
