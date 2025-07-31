@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Room {{ room }} Schedule{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div id="clock"></div>
+    <h1>Schedule for Room {{ room }}</h1>
+    <ul id="schedule-list">
+        {% for class in schedule %}
+            <li>
+                <strong>{{ class.name }}</strong> ({{ class.start_time }} - {{ class.end_time }})
+            </li>
+        {% else %}
+            <li>No classes scheduled for this room.</li>
+        {% endfor %}
+    </ul>
+</div>
+<script src="{{ url_for('static', filename='clock.js') }}"></script>
+{% endblock %}
