@@ -3,18 +3,42 @@
 {% block title %}Room {{ room }} Schedule{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div id="clock"></div>
-    <h1>Schedule for Room {{ room }}</h1>
-    <ul id="schedule-list">
-        {% for class in schedule %}
-            <li>
-                <strong>{{ class.name }}</strong> ({{ class.start_time }} - {{ class.end_time }})
-            </li>
-        {% else %}
-            <li>No classes scheduled for this room.</li>
-        {% endfor %}
-    </ul>
+<div class="room-schedule-container">
+    <div class="schedule-panel">
+        <h1>Schedule: {{ room }}</h1>
+        <ul class="schedule-items">
+            {% for class in schedule %}
+                <li class="schedule-entry {% if class == current_class %}active{% endif %}">
+                    <div class="class-name">{{ class.name }}</div>
+                    <div class="class-time">{{ class.start_time }} - {{ class.end_time }}</div>
+                </li>
+            {% else %}
+                <li class="schedule-entry">
+                    <div class="class-name">No classes scheduled for this room.</div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="info-panel">
+        <div id="clock-box">
+            <div id="clock"></div>
+        </div>
+        <div class="current-class-box">
+            <h2>Now In Session</h2>
+            {% if current_class %}
+                <p class="current-class-name">{{ current_class.name }}</p>
+                <div id="progress-container" data-start-time="{{ current_class.start_time }}" data-end-time="{{ current_class.end_time }}">
+                    <span class="time-label start-time">{{ current_class.start_time }}</span>
+                    <div class="progress-bar-background">
+                        <div id="progress-bar-fill"></div>
+                    </div>
+                    <span class="time-label end-time">{{ current_class.end_time }}</span>
+                </div>
+            {% else %}
+                <p class="current-class-name">No Class</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
 <script src="{{ url_for('static', filename='clock.js') }}"></script>
 {% endblock %}

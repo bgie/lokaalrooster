@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -78,7 +79,26 @@ def index():
 def room_schedule(room_id):
     """Serves the page with the schedule for a specific room."""
     schedule = get_schedule_for_room(room_id)
-    return render_template("room_schedule.html", schedule=schedule, room=room_id)
+
+    now = datetime.now().time()
+    current_class = None
+    for item in schedule:
+        try:
+            start_time = datetime.strptime(item["start_time"], "%H:%M").time()
+            end_time = datetime.strptime(item["end_time"], "%H:%M").time()
+            if start_time <= now < end_time:
+                current_class = item
+                break
+        except (ValueError, KeyError):
+            # Ignore malformed or incomplete schedule items
+            continue
+
+    return render_template(
+        "room_schedule.html",
+        schedule=schedule,
+        room=room_id,
+        current_class=current_class,
+    )
 
 
 if __name__ == "__main__":
